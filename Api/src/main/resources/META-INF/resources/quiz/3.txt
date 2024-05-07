@@ -1,0 +1,106 @@
+{
+  "questions": [
+    {
+      "question": "What is the purpose of the @QuarkusTest annotation in Quarkus testing?",
+      "options": [
+        "A. Marks a class as a JUnit test class.",
+        "B. Identifies the main application class in a Quarkus project.",
+        "C. Defines a Quarkus extension for testing purposes.",
+        "D. Configures integration tests for Quarkus applications."
+      ]
+    },
+    {
+      "question": "In Quarkus, what is the role of the application.yaml file?",
+      "options": [
+        "A. To specify runtime JVM options.",
+        "B. To define SQL queries for database access.",
+        "C. To configure Quarkus extensions and application properties.",
+        "D. To customize the appearance of the Quarkus application."
+      ]
+    },
+    {
+      "question": "Which of the following annotations is used for dependency injection in Quarkus?",
+      "options": [
+        "A. @Inject",
+        "B. @Autowired",
+        "C. @Dependency",
+        "D. @QuarkusInject"
+      ]
+    },
+    {
+      "question": "What is the purpose of the @Path and @Produces annotations in a Quarkus JAX-RS resource?",
+      "options": [
+        "A. To define the project's directory structure.",
+        "B. To specify the license information of the Quarkus application.",
+        "C. To map HTTP requests to resource methods and define response content types.",
+        "D. To indicate the order of execution of resource methods."
+      ]
+    },
+    {
+      "question": "Which Quarkus extension is commonly used for building RESTful APIs?",
+      "options": [
+        "A. Hibernate",
+        "B. RESTEasy",
+        "C. Kafka",
+        "D. GraphQL"
+      ]
+    },
+    {
+      "question": "How does Quarkus support reactive programming?",
+      "options": [
+        "A. Through the use of traditional servlets.",
+        "B. By providing a built-in reactive framework called Quarkus Reactive.",
+        "C. By using the @Reactive annotation in resource classes.",
+        "D. Quarkus does not support reactive programming."
+      ]
+    },
+    {
+      "question": "What is the purpose of the @RegisterForReflection annotation in Quarkus?",
+      "options": [
+        "A. To disable reflection for better performance.",
+        "B. To register classes for reflection during native image compilation with GraalVM.",
+        "C. To define custom reflection rules for specific classes.",
+        "D. To mark classes as non-reflective in Quarkus applications."
+      ]
+    },
+    {
+      "question": "Which of the following Maven plugins is used for building native executables in a Quarkus project?",
+      "options": [
+        "A. quarkus-maven-plugin",
+        "B. native-build-maven-plugin",
+        "C. graal-native-maven-plugin",
+        "D. quarkus-native-plugin"
+      ]
+    },
+    {
+      "question": "What is the purpose of the @Transactional annotation in Quarkus?",
+      "options": [
+        "A. To specify the transaction isolation level.",
+        "B. To mark methods as transactional, ensuring atomic and consistent behavior.",
+        "C. To define the timeout for transactions.",
+        "D. Quarkus does not support transactions."
+      ]
+    },
+    {
+      "question": "Which runtime mode is suitable for development in Quarkus, providing fast startup times and automatic code hot-replacement?",
+      "options": [
+        "A. Production mode",
+        "B. Development mode",
+        "C. Native mode",
+        "D. Test mode"
+      ]
+    }
+  ],
+  "answers": [
+    "A. Marks a class as a JUnit test class.",
+    "C. To configure Quarkus extensions and application properties.",
+    "A. @Inject",
+    "C. To map HTTP requests to resource methods and define response content types.",
+    "B. RESTEasy",
+    "B. By providing a built-in reactive framework called Quarkus Reactive.",
+    "B. To register classes for reflection during native image compilation with GraalVM.",
+    "C. graal-native-maven-plugin",
+    "B. To mark methods as transactional, ensuring atomic and consistent behavior.",
+    "B. Development mode"
+  ]
+}

@@ -1,0 +1,20 @@
+Guideline :
+0. Fondamentaux -> https://app.pluralsight.com/library/courses/quarkus-fundamentals/table-of-contents -> OK
+0bis. Installation stacka : Gitbash, VSCode, JDK 17, docker, postman.
+1. https://quarkus.io/guides/getting-started -> OK
+2. https://quarkus.io/guides/getting-started-dev-services -> OK
+3. https://quarkus.io/guides/getting-started-reactive -> OK
+4. https://quarkus.io/guides/security-oidc-auth0-tutorial -> Documentation out dated sur framework 3.7, go to the next step for basic auth
+5. https://quarkus.io/guides/security-getting-started-tutorial -> OK
+6. Merge de toutes les applications dans une seule app.
+7. Réalisation de TU + https://quarkus.io/guides/security-testing
+8. Réalisation d'un docker-compose pour management image de l'app.
+9. Réalisation tests fonctionnels, collection postman.
+10. Ajout divers outils (Logger - https://quarkus.io/guides/logging, config property).
+11. Execution de bout en bout avec génération des images.
+12. Test 20 questions -> https://welovedevs.com/app/tests/quarkus -> Top 64% niveau intermédiaire
+13. https://quarkus.io/guides/rest-client-reactive -> appel du service : https://catfact.ninja/fact + use mutiny & TU mutiny
+14. https://quarkus.io/guides/openapi-swaggerui & https://www.baeldung.com/spring-rest-openapi-documentation -> Mise en place d'un swagger
+15. https://quarkus.io/guides/telemetry-micrometer + https://quarkus.io/guides/smallrye-health -> Observability and health check
+16. Installation -> Kompose, OC, GraalVM + correctif mvn
+17. https://developers.redhat.com/articles/2023/06/07/deploy-quarkus-applications-openshift-s2i -> Deployement on Openshift (+/- ko cause build explose cpu usage on sandbox, contournement en local avec build local et push sur cmd oc + switch to mariaDB cause postgresal got some error on oc)

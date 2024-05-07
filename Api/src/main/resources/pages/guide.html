@@ -1,0 +1,1114 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TCelor - Learning - Quarkus</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        line-height: 1.6;
+        color: #3b4151;
+        margin: 0;
+        padding: 0;
+        background-color: #fafafa;
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+      }
+
+      header {
+        background-color: #3b4151;
+        color: #fafafa;
+        padding: 10px;
+        text-align: center;
+        box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
+      }
+
+      footer {
+        background-color: #3b4151;
+        color: #fafafa;
+        padding: 10px;
+        text-align: center;
+        box-shadow: 0 -5px 10px rgba(0, 0, 0, 0.3);
+      }
+
+      main {
+        flex: 1;
+      }
+
+      section {
+        margin: 20px;
+      }
+
+      hr {
+        border-color: rgba(0, 0, 0, 0.08);
+        margin-bottom: 1rem;
+      }
+
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6 {
+        margin: 0;
+        padding: 0;
+      }
+
+      h2,
+      h3,
+      h4,
+      h5 {
+        color: #3b4151;
+      }
+
+      ul {
+        list-style: none;
+      }
+
+      li,
+      ol,
+      ul {
+        margin-bottom: 10px;
+        padding-left: 10px;
+      }
+
+      a {
+        color: #5a637a;
+      }
+
+      a:hover {
+        color: #727d9c;
+      }
+
+      code {
+        background-color: #3b4151;
+        color: #fafafa;
+        padding: 6px 12px;
+        border-radius: 4px;
+        overflow-x: auto;
+      }
+
+      .code-section {
+        border: 1px solid rgba(0, 0, 0, 0.125);
+        background-color: #3b4151;
+        border-radius: 4px;
+        padding: 10px;
+        overflow-x: auto;
+        font-family: "Courier New", monospace;
+      }
+
+      .position-relative {
+        margin-bottom: 3px;
+        position: relative;
+      }
+
+      .position-absolute {
+        position: absolute;
+      }
+
+      .top-0 {
+        top: 0;
+      }
+
+      .start-100 {
+        left: 100%;
+        transform: translateX(-100%);
+      }
+
+      .translate-middle {
+        transform: translate(-50%, -50%);
+      }
+
+      .badge {
+        display: inline-block;
+        color: #3b4151;
+        padding: 0.25em 0.4em;
+        font-size: 75%;
+        font-weight: 700;
+        line-height: 1;
+        text-align: center;
+        white-space: nowrap;
+        vertical-align: baseline;
+        border-radius: 0.25rem;
+      }
+
+      button {
+        border: rgba(0, 0, 0, 0.19) 1px;
+      }
+
+      .fs-5 {
+        font-size: 1.25rem;
+      }
+
+      .fs-4 {
+        font-size: 1.5rem;
+      }
+
+      .fw-bold {
+        font-weight: bold;
+      }
+
+      .mb-3 {
+        margin-bottom: 1rem;
+      }
+
+      .d-flex {
+        display: flex;
+      }
+
+      .align-items-center {
+        align-items: center;
+      }
+
+      .fs-5 {
+        font-size: 1.25rem;
+      }
+
+      .fs-4 {
+        font-size: 1.5rem;
+      }
+
+      .fw-bold {
+        font-weight: bold;
+      }
+
+      .ms-2 {
+        margin-left: 0.5rem;
+      }
+
+      .flex-grow-1 {
+        flex-grow: 1;
+      }
+
+      .mx-3 {
+        margin-left: 0.75rem;
+        margin-right: 0.75rem;
+      }
+      .multi-collapse {
+        display: none;
+        transition: height 0.3s ease;
+      }
+
+      .show {
+        display: block !important;
+      }
+
+      .card {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        min-width: 0;
+        word-wrap: break-word;
+        box-shadow: 0 0 3px rgba(0, 0, 0, 0.19);
+        background-clip: border-box;
+      }
+
+      .card-body {
+        flex: 1 1 auto;
+        min-height: 1px;
+        padding: 1.25rem;
+      }
+
+      .py-0 {
+        padding-top: 0;
+        padding-bottom: 0;
+      }
+
+      .px-0 {
+        padding-left: 0;
+        padding-right: 0;
+      }
+
+      .pt-1 {
+        padding-top: 0.25rem;
+      }
+
+      .pb-1 {
+        padding-bottom: 0.25rem;
+      }
+
+      .ps-3 {
+        padding-left: 1rem;
+      }
+
+      .pt-1 {
+        padding-top: 0.25rem;
+      }
+
+      .info-bubble {
+        position: relative;
+        display: inline-block;
+        padding: 10px;
+        border-radius: 4px;
+        border: 1px solid rgba(0, 0, 0, 0.19);
+      }
+
+      .info-bubble::before {
+        content: "";
+        position: absolute;
+        top: 100%;
+        left: 50%;
+        margin-left: -10px;
+        border-width: 10px;
+        border-style: solid;
+        border-color: rgba(0, 0, 0, 0.19) transparent transparent transparent;
+      }
+    </style>
+  </head>
+
+  <body>
+    <header>
+      <h1>TCelor - Learning - Quarkus</h1>
+    </header>
+
+    <main>
+      <!-- Learning Steps -->
+      <section>
+        <div class="mb-3 d-flex align-items-center">
+          <button
+            class="badge bg-primary"
+            onclick="toggleCollapse('collapseIcon1', 'stepsCollapse1')"
+          >
+            <i id="collapseIcon1" class="fs-5">▲</i>
+          </button>
+          <h2 class="fs-4 fw-bold ms-2">Learning Steps</h2>
+        </div>
+        <hr />
+        <div id="stepsCollapse1" class="multi-collapse">
+          <div class="card card-body">
+            <ol>
+              <li>
+                Completed the Quarkus fundamentals course on Pluralsight. (<a
+                  href="https://app.pluralsight.com/library/courses/quarkus-fundamentals/table-of-contents"
+                  target="_blank"
+                  >Link</a
+                >)
+              </li>
+              <li>
+                Installed Gitbash, VSCode, JDK 17, Docker, and Postman for the
+                development environment.
+              </li>
+              <li>
+                Followed the
+                <a
+                  href="https://quarkus.io/guides/getting-started"
+                  target="_blank"
+                  >Quarkus Getting Started Guide</a
+                >.
+              </li>
+              <li>
+                Explored Dev Services in Quarkus by following the
+                <a
+                  href="https://quarkus.io/guides/getting-started-dev-services"
+                  target="_blank"
+                  >guide</a
+                >.
+              </li>
+              <li>
+                Learned about reactive programming in Quarkus with the
+                <a
+                  href="https://quarkus.io/guides/getting-started-reactive"
+                  target="_blank"
+                  >Getting Started with Reactive</a
+                >
+                guide.
+              </li>
+              <li>
+                Explored Quarkus security with the
+                <a
+                  href="https://quarkus.io/guides/security-getting-started-tutorial"
+                  target="_blank"
+                  >Security Getting Started Tutorial</a
+                >.
+              </li>
+              <li>
+                Implemented unit tests and followed the
+                <a
+                  href="https://quarkus.io/guides/security-testing"
+                  target="_blank"
+                  >Security Testing guide</a
+                >.
+              </li>
+              <li>
+                Created a Docker Compose file for managing the Quarkus
+                application image.
+              </li>
+              <li>
+                Performed functional tests and created a Postman collection for
+                testing the Quarkus application.
+              </li>
+              <li>
+                Integrated logging and configuration properties in the Quarkus
+                application. Used additional tools as mentioned in the learning
+                journey.
+              </li>
+              <li>
+                Executed the Quarkus application end-to-end, including image
+                generation.
+              </li>
+              <li>
+                Successfully completed a Quarkus knowledge test with a score
+                (2473 points) placing in the top 64% at an intermediate level.
+              </li>
+              <li>
+                Implemented a Quarkus REST client with reactive programming
+                using Mutiny. Called the service:
+                <a href="https://catfact.ninja/fact" target="_blank"
+                  >Cat Fact Service</a
+                >.
+              </li>
+              <li>
+                Implemented Swagger documentation for the Quarkus application
+                using
+                <a
+                  href="https://quarkus.io/guides/openapi-swaggerui"
+                  target="_blank"
+                  >OpenAPI and Swagger UI</a
+                >. Also, referred to
+                <a
+                  href="https://www.baeldung.com/spring-rest-openapi-documentation"
+                  target="_blank"
+                  >Baeldung guide</a
+                >.
+              </li>
+              <li>
+                Implemented observability with Micrometer and health checks
+                using
+                <a
+                  href="https://quarkus.io/guides/telemetry-micrometer"
+                  target="_blank"
+                  >Telemetry Micrometer</a
+                >
+                and
+                <a
+                  href="https://quarkus.io/guides/smallrye-health"
+                  target="_blank"
+                  >SmallRye Health</a
+                >.
+              </li>
+              <li>
+                Read files from resources path and embed them into container
+              </li>
+              <li>
+                Deployed the Quarkus application on OpenShift following the
+                guide at
+                <a
+                  href="https://developers.redhat.com/articles/2023/06/07/deploy-quarkus-applications-openshift-s2i"
+                  target="_blank"
+                  >Deploy Quarkus Applications on OpenShift</a
+                >.
+              </li>
+              <li>
+                Creation of the guide section to remember easily and beautify
+                the page.
+              </li>
+              <li>
+                Online test -> Quarkus: Java Goes Supersonic in the Cloud! ->
+                Result : The weighted score based on the responses (correct or
+                partial) and their difficulty is 2576 points.This result is in
+                the top 1% of the best developers (Top 1% being the best
+                possible result). It is a very good score.
+              </li>
+              <li>
+                Online test -> Quarkus: Java Goes Supersonic in the Cloud! ->
+                Result : The weighted score based on the responses (correct or
+                partial) and their difficulty is 2768 points.This result is in
+                the top 1% of the best developers (Top 1% being the best
+                possible result). It is a very good score.
+              </li>
+              <li>Enable Code coverage on Quarkus with JaCoCo.</li>
+              <li>Pass the application with SSL</li>
+              <li>
+                Generate and resolve 5 Quarkus with growth complexity. Result :
+                5/5 8/10
+              </li>
+            </ol>
+          </div>
+        </div>
+      </section>
+
+      <!-- Guide -->
+      <section>
+        <div class="mb-3 d-flex align-items-center">
+          <button
+            class="badge bg-primary"
+            onclick="toggleCollapse('collapseIcon2', 'stepsCollapse2')"
+          >
+            <i id="collapseIcon2" class="fs-5">▲</i>
+          </button>
+          <h2 class="fs-4 fw-bold ms-2">Guide</h2>
+        </div>
+        <hr />
+        <div id="stepsCollapse2" class="multi-collapse">
+          <div class="card card-body">
+            <ul>
+              <li>
+                <h3>Quarkus paradigme</h3>
+                <p>
+                  Quarkus is a <b>Supersonic Subatomics Java</b>, why thoses
+                  terms ?
+                </p>
+                <p>
+                  <b>Supersonic</b> is associated to the Speed and velocity
+                  (also high performances and responsivness). Quarkus is disgned
+                  for fast startup times and low memory consumption, making it
+                  suitable for microservices, serverless, and cloud-native
+                  application.
+                </p>
+                <p>
+                  <b>Subatomics</b> is associated to small size, compact.
+                  Quarkus use GraalVM to minimize the memory footprint of Java
+                  applications.
+                </p>
+                <p>
+                  <b>Java</b> because, of course, it is rooted in the Java
+                  ecosystem.
+                </p>
+                <p>
+                  In summary, Quarkus capture the essence of a fast lightweight
+                  framework, optimized for modern cloud-native development.
+                </p>
+
+                <p>
+                  We need to explore more inside Quarkus, trying to answer at
+                  "How Quarkus works ?"
+                </p>
+                <p>
+                  As we already said, Quarkus use GraalVM, it is a
+                  high-performance runtime that provide capabilities for a lot
+                  of popular languages like Java, Javascript, Python, Scala,
+                  Ruby, C, C++ etc ... Making Quarkus natively compatible with
+                  all of thoses.
+                </p>
+                <p>
+                  GraalVM also including a new build paradigme (in Java
+                  environement) known as "Ahead-of-Time (AOT)", allowing a
+                  longer build time for a less memory consuption and fast
+                  startup of your application.
+                </p>
+                <p>
+                  The build system of Quarkus, will use a AOT of GraalVM, the
+                  Jandex index to build a model between classes and Quarkus will
+                  be able to elimiate dead code, Quarkus will also perform
+                  dependency injection and build a meta model of your
+                  applicationto make it more faster and startup fastly.
+                </p>
+                <p>
+                  GraalVM also provide a native image generation that make
+                  Quarkus compliant with the new Cloud-Native environments
+                  (OpenShift), Docker paradigme (Docker or podman) and the new
+                  orchestration paradigme (Kubernetes)
+                </p>
+                <p>
+                  Also, it's important to say that Quarkus is open source and
+                  develop by the famous RedHat organisation, we can benefit of
+                  their strong experience, their platform (Openshift) and nice
+                  guide on the net (<a
+                    href="https://quarkus.io/guides/"
+                    target="_blank"
+                    >Quarkus guide</a
+                  >).
+                </p>
+              </li>
+              <li>
+                <h3>Panache Entity</h3>
+                <p>
+                  Entity is driven by Panache, that is an enchancer for the
+                  Hibernate ORM (such as JPA in spring context), you will need
+                  to add <code>@Entity</code> and <code>@Table</code> hover the
+                  class and make your entity class extend
+                  <code>PanacheEntity</code>.
+                </p>
+                <p>
+                  The Panache Entity will generate some generic function such as
+                  find(), findAll(), delete() etc... But you can create custom
+                  methods in the same class, you can deduct that your entity is
+                  not only a model but also a data-driven process.
+                </p>
+                <p>
+                  You will need to add theses two dependencies in your pom.xml:
+                  <br />
+                </p>
+                <pre class="code-section"><code>
+    &lt;dependency&gt;
+        &lt;groupId&gt;io.quarkus&lt;/groupId&gt;
+        &lt;artifactId&gt;quarkus-hibernate-orm-panache&lt;/artifactId&gt;
+    &lt;/dependency&gt;
+    &lt;dependency&gt;
+        &lt;groupId&gt;io.quarkus&lt;/groupId&gt;
+        &lt;artifactId&gt;quarkus-reactive-mysql-client&lt;/artifactId&gt;
+    &lt;/dependency&gt;
+
+</code></pre>
+                <p>
+                  And also configure the access to the database in
+                  <b>application.properties</b> (you can make them only for prod
+                  profile by adding %prod in front of the key) like in this
+                  example :
+                </p>
+                <pre class="code-section"><code>
+%prod.quarkus.datasource.db-kind=mariadb
+%prod.quarkus.datasource.username=username
+%prod.quarkus.datasource.password=pass
+%prod.quarkus.datasource.reactive.url=mariadb://quarkus:quarkus@mariadb:3306/tablename
+%prod.quarkus.hibernate-orm.log.sql=true
+%prod.quarkus.hibernate-orm.dialect=org.hibernate.dialect.MariaDBDialect
+
+</code></pre>
+                <p>
+                  If you want to add some starting strategies here some example
+                  of what you can do :
+                </p>
+                <pre class="code-section"><code>
+quarkus.hibernate-orm.database.generation=drop-and-create
+quarkus.hibernate-orm.sql-load-script=bdd/import.sql
+
+</code></pre>
+                <p>
+                  The design choise will force you to put all properties to
+                  public following the Active Record pattern (design recommanded
+                  by Quarkus). The main idea is that an entity should
+                  encapsulate both data and behaviour, futhermore, using public
+                  fields can lead to cleaner and more readable code.
+                </p>
+                <p>
+                  If you want to make a property matching a column in database
+                  you can use <code>@Column</code> anotation.
+                </p>
+                <p>
+                  I recommand to use <b>asynchrone</b> database communication by
+                  adding the following dependency and make all method return Uni
+                  (Mutiny Object).
+                </p>
+                <pre class="code-section"><code>
+&lt;dependency&gt;
+    &lt;groupId&gt;io.quarkus&lt;/groupId&gt;
+    &lt;artifactId&gt;quarkus-hibernate-reactive-panache&lt;/artifactId&gt;
+&lt;/dependency&gt;
+
+</code></pre>
+                <p>Here is an exemple of entity class :</p>
+                <pre class="code-section"><code>
+@Entity
+@Table(name = "Person")
+public class Person extends PanacheEntity {
+    @Column(length = 255)
+    public String lastname;
+
+    @Column(length = 255)
+    public String firstname;
+
+    public Uni&lt;PanacheEntityBase&gt; findByLastnameAndFirstname(String lastname, String firstname){
+        return find("lastname", lastname, "firstname", firstname).firstResult();
+    }
+}
+
+</code></pre>
+                <p>
+                  Any modification using Panache by reactive way should use the
+                  anotation <code>@WithTransaction</code>.
+                </p>
+              </li>
+              <li>
+                <h3>Basic Auth</h3>
+                <p>
+                  You can enable a basic authentification by adding theses
+                  dependencies :
+                </p>
+                <pre class="code-section"><code>
+&lt;dependency&gt;
+    &lt;groupId&gt;io.quarkus&lt;/groupId>
+    &lt;artifactId&gt;quarkus-security-jpa-reactive&lt;/artifactId&gt;
+&lt;/dependency&gt;
+
+</code></pre>
+                <p>
+                  Then create an Entity class which extend
+                  <code>PanacheEntity</code>, link your class to a table and use
+                  the anotation <code>@UserDefinition</code> which will inform
+                  the security dependency to look to these Database model for
+                  authentification.
+                </p>
+                <p>
+                  As our model is a PanacheEntity we have to make all properties
+                  public and define three more anotation <code>@Username</code>,
+                  <code>@Password</code> and <code>@Roles</code> to define the
+                  storage of Username, Password and also Roles.
+                </p>
+                <p>
+                  To finish we need to add a way to encrypt our password
+                  (because of course we will store a plain password in
+                  database), to achieve that we can use the librairy
+                  <code>BcryptUtil</code> to hash the password. You can
+                  fine-tuned the method.
+                </p>
+                <p>Here is a full exemple :</p>
+                <pre class="code-section"><code>
+@Entity
+@Table(name = "User")
+@UserDefinition
+public class User extends PanacheEntity {
+    @Username
+    public String username;
+    @Password
+    public String password;
+    @Roles
+    public String roles;
+
+    public static Uni&lt;PanacheEntityBase&gt; add(String username, String password, String role) {
+        User user = new User();
+        user.username = username;
+        user.password = BcryptUtil.bcryptHash(password);
+        user.roles = role;
+        return user.persist();
+    }
+}
+
+</code></pre>
+                <p>
+                  Now, we got a basic authentification system on the storage
+                  way, so we can use it on a RESTApi to secure resource using
+                  the anotation
+                  <code>@RolesAllowed({"the role you want"})</code> at the top
+                  of your method, by this way the user logged will need to get
+                  the role mentionned to activate the method a resource.
+                </p>
+                <p>
+                  If you need to mock the user with a certain profile, you can
+                  use these current anotation :
+                  <code>@TestSecurity(user = "user", roles = {"user"})</code>.
+                </p>
+                <p>You will also need to add these dependency :</p>
+                <pre class="code-section"><code>
+&lt;dependency&gt;
+    &lt;groupId>io.quarkus&lt;/groupId&gt;
+    &lt;artifactId>quarkus-test-security&lt;/artifactId&gt;
+    &lt;scope>test&lt;/scope&gt;
+&lt;/dependency&gt;
+
+</code></pre>
+              </li>
+              <li>
+                <h3>REST Endpoint</h3>
+                <h4>Expose REST</h4>
+                <p>
+                  To use Quarkus to exposes API, we will need to add some
+                  libraries, Quarkus use lot of RestApi library but i will use
+                  <b>RESTEasy</b>.
+                </p>
+                <p>
+                  <b>RESTEasy</b> is a new Jakarta REST implementation from
+                  ground up to work on the layer <b>Vert.x</b> (Vert.x is an
+                  open-source, reactive, and polyglot toolkit designed for
+                  building distributed and reactive systems.). The possibility
+                  to create a blocking/non-blocking endpoints and integrate the
+                  last feature of Jakarta (also known as JAX-RS) his well
+                  integrated with the Quarkus paradigm (focus on build time).
+                </p>
+                <p>First of all we need to add some dependencies :</p>
+                <pre class="code-section"><code>
+&lt;dependency&gt;
+    &lt;groupId&gt;io.quarkus&lt;/groupId&gt;
+    &lt;artifactId&gt;quarkus-resteasy-reactive&lt;/artifactId&gt;
+&lt;/dependency&gt;
+&lt;dependency&gt;
+    &lt;groupId&gt;io.quarkus&lt;/groupId&gt;
+    &lt;artifactId&gt;quarkus-resteasy-reactive-jackson&lt;/artifactId&gt;
+&lt;/dependency&gt;
+
+</code></pre>
+                <p>
+                  The dependency <b>quarkus-resteasy-reactive</b> provides the
+                  core of API while the dependency
+                  <b>quarkus-resteasy-reactive-jackson</b> provides a JSON
+                  serialization integrated.
+                </p>
+                <p>
+                  To start coding, you can generate a class resource and add
+                  this anotation <code>@Path("api/you/want)</code> on the top of
+                  the class to expose your ressource. After that, we can define
+                  a function to achieve some work, as we use <b>RESTEasy</b> we
+                  need to return an Uni (Mutiny Object) to generate a
+                  non-blocking code. On the top of the function we have to
+                  describe the Method by adding the anotation of the desired
+                  verbe for example : <code>@GET</code>. We can also define the
+                  type of the return produce by the method by this anotatino
+                  <code>@Produces(MediaType.TEXT_PLAIN)</code> (you can also use
+                  MediaType.APPLICATION_JSON). Now he have the minimum require
+                  to expose an endpoint.
+                </p>
+                <p>Here is an example of simple api exposition :</p>
+                <pre class="code-section"><code>
+@Path("/api/users")
+public class UserResource {
+
+    @Inject
+    private UserService userService;
+
+    @GET
+    @RolesAllowed({"user", "admin"})
+    @Produces(MediaType.APPLICATION_JSON)
+    @Path("/me")
+    public Uni&lt;DefaultResponse&gt; me(@Context SecurityContext securityContext) {
+        return Uni.createFrom().item(new DefaultResponse(userService.salutation(securityContext.getUserPrincipal().getName())));
+    }
+
+    @WithTransaction
+    @POST
+    @RolesAllowed("admin")
+    @Produces(MediaType.APPLICATION_JSON)
+    public Uni&lt;RestResponse&lt;Object&gt;&gt; create(CreateUser user) {
+        return User.add(user.username, user.password, "user").replaceWith(
+            () -> RestResponse.status(Response.Status.CREATED)
+        );
+    }
+
+    @WithTransaction
+    @GET
+    @RolesAllowed({"admin"})
+    @Produces(MediaType.APPLICATION_JSON)
+    public Uni&lt;RestResponse&lt;List&lt;PanacheEntityBase&gt;&gt;&gt; getUsers() {
+        return User.listAll().ifNoItem().after(Duration.ofMillis(5000)).failWith(new Exception("💥"))
+        .onItem().transform((users -> {
+            return RestResponse.status(Response.Status.OK, users);
+        }));
+    }
+}
+
+</code></pre>
+                <p>
+                  If you need more information you can go
+                  <a
+                    href="https://quarkus.io/guides/resteasy-reactive"
+                    target="resteasy-reactive"
+                    >here</a
+                  >.
+                </p>
+                <br />
+                <h4>Consum REST</h4>
+                <p>
+                  To consum RESTEndpoint we need to use <b>REST-Client</b> which
+                  is compatible with <b>RESTEasy Reactive</b>. We will need to
+                  add the following dependency in the pom.xml :
+                </p>
+                <pre class="code-section"><code>
+&lt;dependency&gt;
+    &lt;groupId&gt;io.quarkus&lt;/groupId&gt;
+    &lt;artifactId&gt;quarkus-rest-client-reactive-jackson&lt;/artifactId&gt;
+    &lt;scope&gt;test&lt;/scope&gt;
+&lt;/dependency&gt;
+
+</code></pre>
+                <p>
+                  After that, we only need to create an <b>interface</b> service
+                  that represent the service we will call. That's the
+                  rest-client who will generate call to the api.
+                </p>
+                <p>
+                  In this interface, we will need to "Register" the interface
+                  for injection, after that we will be able to use
+                  <code>@Injection</code> to inject our service in other class.
+                  To do that we will use the anotation
+                  <code>@RegisterRestClient</code> and give him the url to call,
+                  you can also configure the url in
+                  <b>application.properties</b> and link it by using
+                  <code>@RegisterRestClient(configKey = "extensions-api")</code
+                  >.
+                </p>
+                <p>In <b>application.properties</b> add these (as example) :</p>
+                <pre class="code-section"><code>
+quarkus.rest-client.extensions-api.url=https://catfact.ninja
+quarkus.rest-client.extensions-api.scope=jakarta.inject.Singleton
+
+</code></pre>
+                <p>
+                  We have also to define a method of our service that will
+                  perform the call.
+                </p>
+                <p>Here is an example :</p>
+                <pre class="code-section"><code>
+@RegisterRestClient(configKey = "extensions-api")
+public interface CatFactService {
+    @GET
+    @Path("/fact")
+    @Consumes(MediaType.MULTIPART_FORM_DATA)
+    @Produces(MediaType.APPLICATION_JSON)
+    Uni&lt;CatFactResponse&gt; getCatFact();
+}
+
+</code></pre>
+                <p>
+                  You can note that my object return a Mutiny Object (Uni) to
+                  use reactive call, i will need to handle it in the method that
+                  will consum it.
+                </p>
+                <p>
+                  After that we can add our service in Resource class by Inject
+                  usign <code>@Injection</code> and also by indicate the context
+                  where this injection is by the anotation
+                  <code>@RestClient</code>, it will define the type of service
+                  for Quarkus. And we just need to call the method of our
+                  service.
+                </p>
+                <p>Here is an example with a timeout gestion :</p>
+                <pre class="code-section"><code>
+public class CatFactMutinyResource {
+    @Inject
+    @RestClient
+    CatFactService apiCatFact;
+
+    @GET
+    public Uni&lt;RestResponse&lt;CatFactResponse&gt;&gt; getFact() {
+        return apiCatFact.getCatFact()
+            .ifNoItem() .after(Duration.ofMillis(500)).failWith(new Exception("💥"))
+            .onItem().transform((catFactResponse -&gt; {
+                return RestResponse.status(Response.Status.OK, catFactResponse);
+            }))
+            .onFailure().recoverWithUni(err -&gt; {
+                return Uni.createFrom().item(RestResponse.status(Response.Status.REQUEST_TIMEOUT));
+            });
+    }
+}
+
+</code></pre>
+              </li>
+              <li>
+                <h3>Junit Test</h3>
+                <p>
+                  The Junit test is also made using Mockito and Junit5. As
+                  Spring there is no difference, you will just need to add the
+                  anotation <code>@QuarkusTest</code> to inform the compiler to
+                  interpret this class as a Test class.
+                </p>
+                <p>
+                  Last but not least, Quarkus provide some add on to simulate an
+                  Endpoint of a RestApi.
+                </p>
+                <p>
+                  Before showing an example, make sur to have theses dependency
+                  in your pom.xml :
+                </p>
+                <pre class="code-section"><code>
+&lt;dependency&gt;
+    &lt;groupId&gt;io.quarkus&lt;/groupId&gt;
+    &lt;artifactId&gt;quarkus-junit5-mockito&lt;/artifactId&gt;
+    &lt;scope>test&lt;/scope&gt;
+&lt;/dependency&gt;
+&lt;dependency&gt;
+    &lt;groupId&gt;io.rest-assured&lt;/groupId&gt;
+    &lt;artifactId&gt;rest-assured&lt;/artifactId&gt;
+    &lt;scope&gt;test&lt;/scope&gt;
+&lt;/dependency&gt;
+&lt;dependency&gt;
+    &lt;groupId&gt;org.awaitility&lt;/groupId&gt;
+    &lt;artifactId&gt;awaitility&lt;/artifactId&gt;
+    &lt;scope&gt;test&lt;/scope&gt;
+&lt;/dependency&gt;
+
+</code></pre>
+                <p>
+                  The library <b>rest-assured</b> is used for writing tests that
+                  interact with and validate the behavior of your RESTful
+                  endpoints.
+                </p>
+                <p>
+                  The library <b>awaitility</b> is used for testing your
+                  asynchronous RESTful endpoints.
+                </p>
+                <p>Here is an example of full class tested :</p>
+                <pre class="code-section"><code>
+@QuarkusTest
+public class AdminResourceTest {
+
+    @Inject
+    AdminResource adminResource;
+    
+    @Test
+    void shouldNotAccessAdminWhenAnonymous() {
+        get("/api/admin")
+        .then()
+        .statusCode(HttpStatus.SC_UNAUTHORIZED);
+    }
+    
+    @Test
+    @TestSecurity(user = "admin", roles = {"admin"})
+    void shouldAccessAdminWhenAdminAuthenticated() {
+        given()
+        .when()
+        .get("/api/admin")
+        .then()
+        .statusCode(HttpStatus.SC_OK);
+    }
+}
+
+</code></pre>
+                <p>
+                  If you need to mock the user with a certain profile, you can
+                  use these current anotation :
+                  <code>@TestSecurity(user = "user", roles = {"user"})</code>.
+                </p>
+                <p>You will also need to add these dependency :</p>
+                <pre class="code-section"><code>
+&lt;dependency&gt;
+    &lt;groupId&gt;io.quarkus&lt;/groupId&gt;
+    &lt;artifactId&gt;quarkus-test-security&lt;/artifactId&gt;
+    &lt;scope&gt;test&lt;/scope&gt;
+&lt;/dependency&gt;
+
+</code></pre>
+                <p>
+                  Also, to activate <b>code coverage</b> you have to set the
+                  dependency of JaCoCo to your pom.xml and no more :
+                </p>
+                <pre class="code-section"><code>
+&lt;dependency&gt;
+    &lt;groupId&gt;io.quarkus&lt;/groupId&gt;
+    &lt;artifactId&gt;quarkus-jacoco&lt;/artifactId&gt;
+    &lt;scope&gt;test&lt;/scope&gt;
+&lt;/dependency&gt;
+
+</code></pre>
+                <p>
+                  Now you can run <b>mvn verify</b> to launch the testing
+                  coverage. As in others projects, the report of JaCoCo will be
+                  in target/jacoco-reports. To see more you can go on this
+                  <a
+                    href="https://quarkus.io/guides/tests-with-coverage"
+                    target="Quarkus test guide"
+                    >Quarkus test guide</a
+                  >.
+                </p>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- Life cycle -->
+      <section>
+        <div class="mb-3 d-flex align-items-center">
+          <button
+            class="badge bg-primary"
+            onclick="toggleCollapse('collapseIcon3', 'stepsCollapse3')"
+          >
+            <i id="collapseIcon3" class="fs-5">▲</i>
+          </button>
+          <h2 class="fs-4 fw-bold ms-2">Life cycle</h2>
+        </div>
+        <hr />
+        <div id="stepsCollapse3" class="multi-collapse">
+          <div class="card card-body">
+            <ul>
+              <li>
+                Add extension:
+                <pre
+                  class="code-section"
+                ><code>./mvnw quarkus:add-extension -Dextensions&#x3D;"quarkus-reactive-pg-client"</code></pre>
+              </li>
+              <li>
+                Remove extension:
+                <pre
+                  class="code-section"
+                ><code>./mvnw quarkus:remove-extension -Dextensions&#x3D;"quarkus-reactive-pg-client"</code></pre>
+              </li>
+              <li>
+                Quarkus Developer Mode:
+                <pre class="code-section"><code>mvn quarkus:dev</code></pre>
+              </li>
+              <li>
+                Build &amp; push to OC:
+                <pre
+                  class="code-section"
+                ><code>./mvnw clean package "-Dquarkus.openshift.deploy&#x3D;true" "-Dquarkus.openshift.route.expose&#x3D;true"</code></pre>
+              </li>
+              <li>
+                Build Docker Image:
+                <pre
+                  class="code-section"
+                ><code>./mvnw package "-Dmaven.test.skip&#x3D;true" "-Dquarkus.container-image.build&#x3D;true"</code></pre>
+              </li>
+              <li>
+                Build Native Docker Image (GraalVM) - use of -Pnative :
+                <pre
+                  class="code-section"
+                ><code>./mvnw package "-Pnative" "-Dmaven.test.skip&#x3D;true" "-Dquarkus.container-image.build&#x3D;true"</code></pre>
+              </li>
+            </ul>
+            <div class="info-bubble">
+              Remove <b>" "</b> if not on Powershell.
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Additional Links -->
+      <section>
+        <div class="mb-3 d-flex align-items-center">
+          <button
+            class="badge bg-primary"
+            onclick="toggleCollapse('collapseIcon4', 'stepsCollapse4')"
+          >
+            <i id="collapseIcon4" class="fs-5">▲</i>
+          </button>
+          <h2 class="fs-4 fw-bold ms-2">Additional Links</h2>
+        </div>
+        <hr />
+        <div id="stepsCollapse4" class="multi-collapse">
+          <div class="card card-body">
+            <ul>
+              <li><a href="swagger-ui" target="Swagger">Swagger</a></li>
+              <li><a href="guide" target="Guide page">Guide page</a></li>
+              <li>
+                <a href="q/dev-ui" target="DEV UI">DEV UI (ONLY IN DEV MODE)</a>
+              </li>
+              <li>
+                <a
+                  href="q/dev-ui/io.quarkus.quarkus-smallrye-health/health-ui"
+                  target="Health Check"
+                  >Health Check (ONLY IN DEV MODE)</a
+                >
+              </li>
+              <li>
+                <a href="q/dev-ui/continuous-testing" target="Unit Tests"
+                  >Unit Tests(ONLY IN DEV MODE)</a
+                >
+              </li>
+              <li>
+                <a
+                  href="q/dev-ui/io.quarkus.quarkus-resteasy-reactive/endpoint-scores"
+                  target="Endpoint Scores"
+                  >Endpoint Scores(ONLY IN DEV MODE)</a
+                >
+              </li>
+            </ul>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <p>&copy; 2024 TCelor Learning</p>
+    </footer>
+
+    <script>
+      function toggleCollapse(iconId, stepsCollapseId) {
+        var stepsCollapse = document.getElementById(stepsCollapseId);
+        var icon = document.getElementById(iconId);
+
+        if (stepsCollapse) {
+          stepsCollapse.classList.toggle("show");
+
+          if (stepsCollapse.classList.contains("show")) {
+            icon.innerText = "▼";
+          } else {
+            icon.innerText = "▲";
+          }
+        } else {
+          console.error("Element with id " + stepsCollapseId + " not found.");
+        }
+      }
+    </script>
+  </body>
+</html>

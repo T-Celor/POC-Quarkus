@@ -1,0 +1,56 @@
+{
+  "questions": [
+    {
+      "question": "Which of the following statements about Quarkus is true?",
+      "options": [
+        "A. Quarkus is primarily designed for monolithic applications.",
+        "B. Quarkus applications are always deployed as standalone JAR files.",
+        "C. Quarkus is built to optimize Java applications for serverless and cloud-native environments.",
+        "D. Quarkus doesn't support microservices architecture."
+      ]
+    },
+    {
+      "question": "What is the purpose of Quarkus extensions?",
+      "options": [
+        "A. To complicate the development process.",
+        "B. To provide additional features and capabilities to Quarkus applications.",
+        "C. To increase the size of the application.",
+        "D. To remove flexibility from Quarkus projects."
+      ]
+    },
+    {
+      "question": "Which of the following annotations is used to define a REST endpoint in a Quarkus application?",
+      "options": [
+        "A. @RestResource",
+        "B. @Endpoint",
+        "C. @RestController",
+        "D. @Path"
+      ]
+    },
+    {
+      "question": "How does Quarkus achieve its fast startup time and low memory consumption?",
+      "options": [
+        "A. By ignoring optimizations for native compilation.",
+        "B. By using traditional Java EE runtime environments.",
+        "C. By leveraging GraalVM for native compilation.",
+        "D. By excluding support for microservices."
+      ]
+    },
+    {
+      "question": "What is the purpose of the application.properties file in a Quarkus project?",
+      "options": [
+        "A. To store the application's source code.",
+        "B. To configure Quarkus extensions and application properties.",
+        "C. To define the layout of the project's directory structure.",
+        "D. To specify the license information of the Quarkus application."
+      ]
+    }
+  ],
+  "answers": [
+    {numero: 2, label: "Quarkus is built to optimize Java applications for serverless and cloud-native environments."},
+    {numero: 1, label: "To provide additional features and capabilities to Quarkus applications."},
+    {numero: 3, label: "@Path."},
+    {numero: 2, label: "By leveraging GraalVM for native compilation."},
+    {numero: 1, label: "To configure Quarkus extensions and application properties."}
+  ]
+}

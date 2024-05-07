@@ -1,0 +1,34 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  annotations:
+    kompose.cmd: C:\Users\tcelor\Documents\Applications\kompose.exe convert
+    kompose.version: 1.32.0 (765fde254)
+  labels:
+    io.kompose.service: app
+  name: app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      io.kompose.service: app
+  template:
+    metadata:
+      annotations:
+        kompose.cmd: C:\Users\tcelor\Documents\Applications\kompose.exe convert
+        kompose.version: 1.32.0 (765fde254)
+      labels:
+        io.kompose.network/quarkus-all-in-project-default: "true"
+        io.kompose.service: app
+    spec:
+      containers:
+        - env:
+            - name: QUARKUS_DATASOURCE_REACTIVE_URL
+              value: vertx-reactive:postgresql://postgres:5432/elytron_security_jpa
+          image: tcelor/security-project:1.0.0-SNAPSHOT
+          name: app-quarkus
+          ports:
+            - containerPort: 8080
+              hostPort: 8080
+              protocol: TCP
+      restartPolicy: Always

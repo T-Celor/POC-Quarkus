@@ -1,0 +1,38 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  annotations:
+    kompose.cmd: C:\Users\tcelor\Documents\Applications\kompose.exe convert
+    kompose.version: 1.32.0 (765fde254)
+  labels:
+    io.kompose.service: postgres
+  name: postgres
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      io.kompose.service: postgres
+  template:
+    metadata:
+      annotations:
+        kompose.cmd: C:\Users\tcelor\Documents\Applications\kompose.exe convert
+        kompose.version: 1.32.0 (765fde254)
+      labels:
+        io.kompose.network/quarkus-all-in-project-default: "true"
+        io.kompose.service: postgres
+    spec:
+      containers:
+        - env:
+            - name: POSTGRES_DB
+              value: elytron_security_jpa
+            - name: POSTGRES_PASSWORD
+              value: quarkus
+            - name: POSTGRES_USER
+              value: quarkus
+          image: postgres:latest
+          name: db
+          ports:
+            - containerPort: 5432
+              hostPort: 5431
+              protocol: TCP
+      restartPolicy: Always
